@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+    <style>
+        #calendar {
+            display: none; /* Esconde o calendário inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-4">
+        <button id="toggleCalendar">Calendario</button>
+        <div id="calendar"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+
+                // Evento de clique para mostrar/ocultar o calendário
+                document.getElementById('toggleCalendar').addEventListener('click', function() {
+                    if (calendarEl.style.display === 'none') {
+                        calendarEl.style.display = 'block'; // Mostra o calendário
+                    } else {
+                        calendarEl.style.display = 'none'; // Esconde o calendário
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
